@@ -13,7 +13,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/project")
-@CrossOrigin
+@CrossOrigin // react ten post geleceği için bu var .
 public class ProjectController {
 
     private ProjectService projectService;

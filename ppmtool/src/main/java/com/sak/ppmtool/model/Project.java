@@ -1,6 +1,7 @@
 package com.sak.ppmtool.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -32,12 +33,26 @@ public class Project {
     private Date end_date;
 
     @JsonFormat(pattern = "yyyy-mm-dd")
+    @Column(updatable = false)
     private Date created_At;
 
     @JsonFormat(pattern = "yyyy-mm-dd")
     private Date updated_At;
 
+    // project ile Backlog 'taki Project nesnesinin adı aynı olmalı !
+    @OneToOne(fetch = FetchType.EAGER , cascade = CascadeType.ALL , mappedBy = "project")
+    @JsonIgnore // json ile gönderilmesin diyoruz burda !
+    private Backlog backlog;
+
     public Project() {
+    }
+
+    public Backlog getBacklog() {
+        return backlog;
+    }
+
+    public void setBacklog(Backlog backlog) {
+        this.backlog = backlog;
     }
 
     public Long getId() {
