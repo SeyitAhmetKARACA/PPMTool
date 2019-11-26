@@ -64,7 +64,7 @@ public class BacklogController {
 
 
     @RequestMapping(value = "/{backlog_id}/{pt_id}",method = RequestMethod.DELETE)
-    public ResponseEntity<?> updateProjectTask(@PathVariable String backlog_id , @PathVariable String pt_id){
+    public ResponseEntity<?> deleteProjectTask(@PathVariable String backlog_id , @PathVariable String pt_id){
        /* ResponseEntity<?> errMap = mapValidationErrorService.MapValidationService(result);
 
         if(errMap != null)
