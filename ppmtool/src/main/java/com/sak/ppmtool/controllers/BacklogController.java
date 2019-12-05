@@ -34,6 +34,7 @@ public class BacklogController {
             return errMap;
         }
         ProjectTask projectTask1 = projectTaskService.addProjectTask(backlog_id , projectTask);
+        System.out.println(projectTask.toString());
         return new ResponseEntity<ProjectTask>(projectTask1, HttpStatus.CREATED);
     }
 
@@ -49,13 +50,14 @@ public class BacklogController {
     }
 
     @RequestMapping(value = "/{backlog_id}/{pt_id}",method = RequestMethod.PATCH)
-    public ResponseEntity<?> updateProjectTask(@Valid @RequestBody ProjectTask projectTask,
-                                               @PathVariable String backlog_id , @PathVariable String pt_id,
-                                               BindingResult result){
+    public ResponseEntity<?> updateProjectTask(@Valid @RequestBody ProjectTask projectTask,BindingResult result,
+                                               @PathVariable String backlog_id , @PathVariable String pt_id
+                                               ){
         ResponseEntity<?> errMap = mapValidationErrorService.MapValidationService(result);
 
-        if(errMap != null)
+        if(errMap != null){
             return errMap;
+        }
 
         ProjectTask updatedTask = projectTaskService.updateByProjectSequence(projectTask,backlog_id,pt_id);
 

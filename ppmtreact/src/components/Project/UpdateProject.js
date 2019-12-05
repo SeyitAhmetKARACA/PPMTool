@@ -49,7 +49,7 @@ class UpdateProject extends Component {
   }
 
   onChange(e) {
-    console.log(e.target.value);
+    //console.log(e.target.value);
     this.setState({ [e.target.name]: e.target.value });
   }
 
@@ -129,7 +129,6 @@ class UpdateProject extends Component {
                     className={classnames("form-control form-control-lg", {
                       "is-invalid": errors.start_date
                     })}
-                    name="start_date"
                     value={this.state.start_date}
                     onChange={this.onChange}
                   />
@@ -145,7 +144,6 @@ class UpdateProject extends Component {
                     className={classnames("form-control form-control-lg", {
                       "is-invalid": errors.end_date
                     })}
-                    name="end_date"
                     value={this.state.end_date}
                     onChange={this.onChange}
                   />

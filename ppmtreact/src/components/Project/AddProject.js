@@ -46,7 +46,7 @@ class AddProject extends Component {
 
   render() {
     const { errors } = this.state;
-    console.log(errors.projectName);
+    //console.log(errors.projectName);
     return (
       <div>
         <div className="project">

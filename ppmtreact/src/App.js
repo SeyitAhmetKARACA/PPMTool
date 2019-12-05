@@ -25,7 +25,7 @@ function App() {
           <Route exact path="/addProjectTask/:id" component={AddProjectTask} />
           <Route
             exact
-            path="/updateProjectTask/:id"
+            path="/updateProjectTask/:backlog_id/:pt_id" // propla bunları alıyoruz match.params
             component={UpdateProjectTask}
           />
         </div>
